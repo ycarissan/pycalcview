@@ -1,0 +1,40 @@
+$vibrational spectrum
+#  mode     symmetry     wave number   IR intensity    selection rules
+#                         cm**(-1)        km/mol         IR     RAMAN
+     1                       -0.00         0.00000        -       -
+     2                       -0.00         0.00000        -       -
+     3                        0.00         0.00000        -       -
+     4                        0.00         0.00000        -       -
+     5                        0.00         0.00000        -       -
+     6                        0.00         0.00000        -       -
+     7        e2u           401.36         0.00000       NO      NO
+     8        e2u           401.36         0.00000       NO      NO
+     9        e2g           599.77         0.00000       NO      YES
+    10        e2g           599.77         0.00000       NO      YES
+    11        a2u           670.13        87.93538       YES     NO
+    12        b1g           712.13         0.00000       NO      NO
+    13        e1g           837.51         0.00000       NO      YES
+    14        e1g           837.51         0.00000       NO      YES
+    15        e2u           955.19         0.00000       NO      NO
+    16        e2u           955.19         0.00000       NO      NO
+    17        b2u           980.08         0.00000       NO      NO
+    18        b1g           992.39         0.00000       NO      NO
+    19        a1g           998.28         0.00000       NO      YES
+    20        e1u          1035.96         5.08216       YES     NO
+    21        e1u          1035.96         5.08216       YES     NO
+    22        b1u          1135.53         0.00000       NO      NO
+    23        e2g          1157.52         0.00000       NO      YES
+    24        e2g          1157.52         0.00000       NO      YES
+    25        a2g          1332.68         0.00000       NO      NO
+    26        b1u          1371.54         0.00000       NO      NO
+    27        e1u          1474.53         6.35815       YES     NO
+    28        e1u          1474.53         6.35815       YES     NO
+    29        e2g          1611.29         0.00000       NO      YES
+    30        e2g          1611.29         0.00000       NO      YES
+    31        b2u          3080.91         0.00000       NO      NO
+    32        e2g          3091.06         0.00000       NO      YES
+    33        e2g          3091.06         0.00000       NO      YES
+    34        e1u          3105.71        38.01701       YES     NO
+    35        e1u          3105.71        38.01701       YES     NO
+    36        a1g          3115.36         0.00000       NO      YES
+$end

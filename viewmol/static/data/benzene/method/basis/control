@@ -1,0 +1,103 @@
+$title
+$operating system unix
+$symmetry d6h
+$user-defined bonds    file=coord
+$coord    file=coord
+$intdef    file=coord
+$optimize
+ internal   on
+ redundant  off
+ cartesian  off
+ global     off
+ basis      off
+$atoms
+c  1-6                                                                         \
+   basis =c def-SV(P)                                                          \
+   jbas  =c def-SV(P)
+h  7-12                                                                        \
+   basis =h def-SV(P)                                                          \
+   jbas  =h def-SV(P)
+$basis    file=basis
+$rundimensions
+   dim(fock,dens)=5379
+   natoms=12
+   nshell=48
+   nbf(CAO)=102
+   dim(trafo[SAO<-->AO/CAO])=808
+   rhfshells=1
+   nbf(AO)=96
+$scfmo   file=mos
+$closed shells
+ a1g     1-3                                    ( 2 )
+ e1g     1                                      ( 2 )
+ e2g     1-3                                    ( 2 )
+ a2u     1                                      ( 2 )
+ b1u     1                                      ( 2 )
+ b2u     1-2                                    ( 2 )
+ e1u     1-3                                    ( 2 )
+$scfiterlimit       30
+$thize     0.10000000E-04
+$thime        5
+$scfdump
+$scfintunit
+ unit=30       size=0        file=twoint
+$scfdiis
+$maxcor    500 MiB  per_core
+$scforbitalshift  automatic=.1
+$drvopt
+   cartesian  on
+   basis      off
+   global     off
+   hessian    on
+   dipole     on
+   nuclear polarizability
+$interconversion  off
+   qconv=1.d-7
+   maxiter=25
+$coordinateupdate
+   dqmax=0.3
+   interpolate  on
+   statistics    5
+$forceupdate
+   ahlrichs numgeo=0  mingeo=3 maxgeo=4 modus=<g|dq> dynamic fail=0.3
+   threig=0.005  reseig=0.005  thrbig=3.0  scale=1.00  damping=0.0
+$forceinit on
+   diag=default
+$energy    file=energy
+$grad    file=gradient
+$forceapprox    file=forceapprox
+$dft
+   functional b-p
+   gridsize   m3
+$scfconv   6
+$scfdamp   start=0.700  step=0.050  min=0.050
+$ricore      500
+$rij
+$jbas    file=auxbasis
+$last step     tm2molden
+$last SCF energy change = 0.45159538E-08
+$charge from ridft
+          0.000 (not to be modified here)
+$dipole from force
+  x    -0.00000000000000    y    -0.00000000000001    z     0.00000000000000    a.u.
+   | dipole | =    0.0000000000  debye
+$optinfo       file=optinfo
+$hessapprox   file=hessapprox
+$orbital_max_rnorm 0.15042568107426E-04
+$subenergy  Etot         E1                  Ej                Ex                 Ec                 En
+-232.0765631320    -710.2141511887     311.2271073037    -33.16587083594    -1.506632408195     201.5829839971
+$dipgrad    file=dipgrad
+$hessian (projected)    file=hessian
+$vibrational normal modes    file=vib_normal_modes
+$vibrational reduced masses
+   3.8829120793   4.3151195501   5.4535021162   5.2671955372   4.1796229734
+   5.4396637264   2.8686784029   2.8686784029   6.0530862541   6.0530862541
+   1.0849178440   3.4358695216   1.2493170497   1.2493170497   1.3759768459
+   1.3759768459   6.5964096785   1.2750193011   5.9953987446   1.6229297612
+   1.6229297612   1.0339937568   1.1170256101   1.1170256101   1.2493170497
+   9.2399951075   2.1346655976   2.1346655976   5.8578798025   5.8578798025
+   1.0825423676   1.0874906276   1.0874906276   1.0959496072   1.0959496072
+   1.1006495401
+$nvibro       36
+$vibrational spectrum    file=vibspectrum
+$end

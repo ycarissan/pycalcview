@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    {% load static %}
+    <title>{{ molecule.name_text }}</title>
+
 </head>
 <body>
-$END$
+<script type="text/javascript" src="{% static 'js/JSmol.min.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+<script type="text/javascript">
+
+Jmol._isAsync = false;
+
+// last update 2/18/2014 2:10:06 PM
+
+var jmolApplet0; // set up in HTML table, below
+
+// logic is set by indicating order of USE -- default is HTML5 for this test page, though
+
+var s = document.location.search;
+
+// Developers: The _debugCode flag is checked in j2s/core/core.z.js,
+// and, if TRUE, skips loading the core methods, forcing those
+// to be read from their individual directories. Set this
+// true if you want to do some code debugging by inserting
+// System.out.println, document.title, or alert commands
+// anywhere in the Java or Jmol code.
+
+Jmol._debugCode = (s.indexOf("debugcode") >= 0);
+
+jmol_isReady = function(applet) {
+	document.title = (applet._id + " - Jmol " + Jmol.___JmolVersion)
+	Jmol._getElement(applet, "appletdiv").style.border="1px solid blue"
+}
+
+var molecule_dir = "{% static '/data/' %}".concat("{{ molecule.name_text|lower }}/")
+var method = "method"
+var basis  = "basis"
+var geometry_file    = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.geom.xyz");
+var orbitals_file    = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.mos.in");
+var frequencies_file = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.freq.log");
+var excitations_file = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.ex.in");
+
+var Info = {
+	width: 400,
+	height: 400,
+	debug: false,
+	color: "0xFFFFFF",
+	addSelectionOptions: false,
+	use: "HTML5",   // JAVA HTML5 WEBGL are all options
+	j2sPath: "{% static '/js/j2s' %}", // this needs to point to where the j2s directory is.
+	isSigned: true,
+	script: "set zoomlarge false;set antialiasDisplay;load ".concat(geometry_file),
+	serverURL: "https://chemapps.stolaf.edu/jmol/jsmol/php/jsmol.php",
+	readyFunction: jmol_isReady,
+	disableJ2SLoadMonitor: true,
+  disableInitialConsole: true,
+  allowJavaScript: true
+}
+
+$(document).ready(function() {
+  $("#appdiv").html(Jmol.getAppletHtml("jmolApplet0", Info))
+})
+var lastPrompt=0;
+</script>
+
+<h1> {{ molecule.name_text }}</h1>
+{{ molecule.formula_text }}
+{{ molecule.jmol_file_text }}
+        <script>
+                document.write(method);
+                document.write(basis);
+        </script>
+<div id="appdiv"></div>
+<div id="chooser">
+</div>
+<button id="button_geom" onclick="Jmol.script(jmolApplet0,'load '.concat(geometry_file))"    class="button_choice">Geometry</button>
+<button id="button_mos"  onclick="Jmol.script(jmolApplet0,'load '.concat(orbitals_file))"    class="button_choice">Molecular orbitals</button>
+<button id="button_freq" onclick="Jmol.script(jmolApplet0,'load '.concat(frequencies_file))" class="button_choice">Vibrations</button>
+<button id="button_ex"   onclick="Jmol.script(jmolApplet0,'load '.concat(excitations_file))" class="button_choice">Excitations</button>
 </body>
 </html>

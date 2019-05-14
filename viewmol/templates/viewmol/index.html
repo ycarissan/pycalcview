@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+{% if latest_molecule_list %}
+    <ul>
+    {% for molecule in latest_molecule_list %}
+        <li><a href="/viewmol/{{ molecule.id }}/">{{ molecule.name_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No molecule are available.</p>
+{% endif %}
 </body>
 </html>

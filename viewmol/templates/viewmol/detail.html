@@ -40,7 +40,7 @@ var method = "method"
 var basis  = "basis"
 var geometry_file    = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.geom.xyz");
 var orbitals_file    = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.mos.in");
-var frequencies_file = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.freq.log");
+var frequencies_file = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.freq.input");
 var excitations_file = molecule_dir.concat(method).concat("/").concat(basis).concat("/").concat("{{ molecule.name_text|lower }}.ex.in");
 
 var Info = {
